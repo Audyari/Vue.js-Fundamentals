@@ -36,6 +36,10 @@
   <script src="https://unpkg.com/vue@3"></script>
   <script>
     const shoppingListApp = Vue.createApp({
+        /**
+         * The component's data.
+         * @returns {{header: string, editing: boolean, newItem: string, newItemHighPriority: boolean, items: {id: number, label: string}[]}}
+         */
       data() {
         return {
           header: 'Shopping List App',
@@ -50,10 +54,24 @@
         }
       },
       methods: {
+        /**
+         * Adds the item that the user is currently typing in the input field to
+         * the list of items and resets the input field to be empty.
+         */
         saveItem() {
           this.items.push({ id: this.items.length + 1, label: this.newItem })
           this.newItem = ""
         },
+        /**
+         * Sets the app into "editing" mode if the argument is true and "not
+         * editing" mode if the argument is false. When the app is in "editing"
+         * mode, the input field and the high priority checkbox are displayed.
+         * When the app is in "not editing" mode, the input field and the high
+         * priority checkbox are not displayed. Also resets the input field to
+         * be empty.
+         * @param {boolean} editing - Whether the app should be in "editing"
+         *     mode or not.
+         */
         doEdit(editing) {
           this.editing = editing
           this.newItem = ""
