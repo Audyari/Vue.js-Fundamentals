@@ -5,6 +5,6 @@
 </template>
 
 <script setup>
-import HelloWord1 from './components/HelloWord1.vue'
+import HelloWord1 from './components/HelloWord2.vue'
 import './assets/styles.css'; 
 </script>
